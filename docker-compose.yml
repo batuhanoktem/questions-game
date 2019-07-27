@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    hostname: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: calipsa
+      POSTGRES_PASSWORD: C@lips@
+      POSTGRES_DB: questions_game
+    ports:
+      - "5432:5432"
+
+  questions-game:
+    env_file: .env
+    build: .
+    command: bash -c "sequelize db:migrate && forever start ./bin/www && cd vue-client && yarn serve"
+    depends_on:
+      - postgres
+    environment:
+      NODE_ENV: production
+      WAIT_HOSTS: postgres:5432
+    ports:
+      - "3000:3000"
+      - "80:8080"
+    volumes:
+      - .:/home/app/
+      - /home/app/node_modules
+
+ 

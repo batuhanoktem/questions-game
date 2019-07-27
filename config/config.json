@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "calipsa",
+    "password": "C@lips@",
+    "database": "questions_game",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "calipsa",
+    "password": "C@lips@",
+    "database": "questions_game",
+    "host": "postgres",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "calipsa",
+    "password": "C@lips@",
+    "database": "questions_game",
+    "host": "postgres",
+    "dialect": "postgres"
+  }
+}
